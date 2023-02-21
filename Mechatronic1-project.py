@@ -128,23 +128,13 @@ def send():
                 cv2.drawContours(mask, [c], 0, (255,255,255), -1)
                 cv2.drawContours(filled_after, [c], 0, (0,255,0), -1)
 
-        #cv2.imshow('before', img1)
-        #cv2.imshow('after', img2)
-        #cv2.imshow('diff', diff)
-        #cv2.imshow('diff_box', diff_box)
-        #cv2.imshow('mask', mask)
-        #cv2.imshow('filled after', filled_after)
-        #cv2.waitKey()
+                
         cv2.imwrite(str(source_path) + '\\files\outputs\\results\\0(difference).png', img1)
         cv2.imwrite(str(source_path) + '\\files\outputs\\results\\1(difference).png', img2)
-        #cv2.imwrite(str(source_path) + '\\files\outputs\\results\\diff.png', diff)
-        #cv2.imwrite(str(source_path) + '\\files\outputs\\results\\diff_box.png', diff_box)
-        #cv2.imwrite(str(source_path) + '\\files\outputs\\results\\mask.png', mask)
         cv2.imwrite(str(source_path) + '\\files\outputs\\results\\filled_after.png', filled_after)
         
         # Page2 configuration :
         page2 = tk.Toplevel()
-        #page2.geometry("750x500")
         page2['bg']="#ffffff"
         page2.title("Results")
         tk.Label(page2, text="Result:", padx=25, pady=25, font=('verdana',16), bg='#ffffff').grid(row=0, column=0, columnspan=3, sticky=W)
@@ -158,22 +148,7 @@ def send():
         filled_after = PhotoImage(file = str(source_path) + '\\files\outputs\\results\\filled_after.png')
         tk.Label(page2, bg='#00FF00', bd=0, width=400, height=400, image=filled_after).grid(row=2, column=2, ipadx=0, ipady=0)
         tk.Label(page2, text="Filled-difference picture \n the difference is filled by lime color", font=('verdana',10), pady=10).grid(row=3, column=2)
-        #show_res1 = tk.Label(page2, bg='#ffffff')
-        #img1 = Image.open(img1)
-        #img1 = ImageTk.PhotoImage(img1)
-        #show_res1['image'] = img1
-        #cv2.imshow('show_pic1', img1_gray)
-        #cv2.imshow('show_pic2', img2_gray)
-        
-        #show_gray_pic1 = tk.Label(page2)
-        #gray_pic1 = ImageTk.PhotoImage(img1_gray)
-        #show_gray_pic1['image'] = gray_pic1
-        #show_gray_pic2 = tk.Label(page2)
-        #gray_pic2 = ImageTk.PhotoImage(img2_gray)
-        #show_gray_pic2['image'] = gray_pic2
-        
-        #show_gray_pic1.grid(row=1, column=0)
-        #show_gray_pic2.grid(row=1, column=5)
+
         page2.mainloop()
         
 
